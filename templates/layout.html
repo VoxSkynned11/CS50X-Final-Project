@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robot" content="index">
+        <meta name="keywords" content="hello, world">
+        <meta name="author" content="author">
+        <meta name="description" content="scary code ahead">
+
+
+        <base href="static/">
+        <title>TODO: {% block title %}{% endblock %}</title>
+        <link href="styles.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+        <link href="favicon.ico" rel="icon" type="image/x-icon" />
+        <!--Social media icons-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="layout.js" defer></script>
+
+        <!--google fonts, sofia-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
+
+
+    </head>
+    <body class="bg-dark">
+        <!--TODO: configure main container-->
+        <header id="pagHeader" class="container-fluid bg-royal">
+
+            <nav id="navBar"class="navbar navbar-expand-md mw-100 navbar-dark">
+                <a class="navbar-brand ms-3" href="../">
+                    <img src="logoipsum-2.svg" class="mh-75">
+                </a>
+
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                     <ul class="navbar-nav ms-auto text-center">
+                        {% if session["user_id"] %}
+                        <li class="navbar-item me-2">
+                            <a class="nav-link text-white" href="/admin">Admin</a>
+                        </li>
+                        {% endif %}
+                        <li class="navbar-item me-2">
+                            <a class="nav-link text-white" href="/projects">Projects</a>
+                        </li>
+                        <li class="navbar-item me-2">
+                            <a class="nav-link text-white" href="/contact">Contact</a>
+                        </li>
+                        <li class="navbar-item me-3">
+                            <a class="nav-link text-white" href="/services">Services</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </nav>
+
+        </header>
+
+        <main class="container-fluid bg-dark p-3">
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer id="pagFooter" class="container-fluid bg-royal mx-auto mh-25 p-0">
+            <header id="footerHeader" class="mw-100 bg-dark mw-100 bg-royal-bottom text-center">
+                <h2 class="f-sofia text-white">Sayori</h2>
+            </header>
+
+
+            <article id="footerSocial" class="border border-top-3 mw-100 border-dark d-flex justify-content-center">
+                <div class="d-flex flex-column justify-content-evenly">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                </div>
+                <div>
+                    <a href="../about.html">
+                        <img id="authorPhoto" class="rounded-circle border border-5 border-dark" src="data:image/jpeg;base64,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">
+                    </a>
+                </div>
+                <div class="d-flex flex-column justify-content-evenly">
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                </div>
+
+            </article>
+
+            <article id="thanks" class="d-flex flex-column bg-royal">
+                <h3 class="text-white f-sofia ms-3">Special thanks to:</h3>
+
+                <div class="d-flex justify-content-center">
+                    <figure class="text-center w-25 h-25">
+                        <a class="text-center text-decoration-none" target="_blank" href="https://www.youtube.com/c/cfbcursos">
+                            <img class="w-25 border rounded-circle border-3 border-dark" src="https://storage.googleapis.com/ares-profile-pictures/hd/cfbcursos-3908a7dde0140950b3318a341415a0b3_hd.jpg">
+                            <figcaption class="h5 text-white text-center">CFB</figcaption>
+                        </a>
+                    </figure>
+
+                    <figure class="text-center w-25 h-25">
+                        <a class="text-center text-decoration-none" target="_blank" href="https://www.youtube.com/playlist?list=PLhQjrBD2T383f9scHRNYJkior2VvYjpSL">
+                            <img class="w-25 border rounded-circle border-3 border-dark" src="https://pbs.twimg.com/profile_images/1363521426574241797/QI2kSWz6_400x400.jpg">
+                            <figcaption class="h5 text-white text-center">CS50</figcaption>
+                        </a>
+                    </figure>
+                </div>
+            </article>
+
+            <div class="mw-100 bg-royal-top text-center border-top-3 border-dark">
+                <h3 class="f-sofia text-white">CS50 Final Project: Portifolio Template With Flask</h3>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </body>
+</html>

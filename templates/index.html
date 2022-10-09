@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portifolio
+{% endblock %}
+
+{% block main %}
+    <header class="text-center my-5">
+        <h1 class="text-white">Attractive Title</h1>
+    </header>
+    <section class="row row-cols-2 row-cols-lg-4 row-cols-xl-5 flex-grow-1 flex-shrink-1 justify-content-center text-center p-0 my-auto min-vh-100 min-w-auto -py-5">
+      {% for image in img %}
+
+            <!--make images appear square in card, square-img prevent distortion-->
+            <div class="col h-100 p-2">
+              <figure class="figure text-center">
+                <div class="text-center p-2 text-white bg-royal-bottom">
+                  <h6 class="text-center text-white my-1">{{ image.title }}</h6>
+                </div>
+                <a href="#exampleModal" class="text-decoration-none" data-bs-toggle="modal" data-bs-whatever="img/{{ image.name }}">
+                  <img src="img/{{ image.name }}" class="square-img-auto" alt="alt text">
+                </a>
+                <figcaption class="figure-caption text-center text-white bg-royal-top">
+                  {{ image.desc }}
+                </figcaption>
+              </figure>
+            </div>
+
+
+
+      {% endfor %}
+         <!-- modal view -->
+
+
+         <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog p-1">
+            <div class="modal-content">
+
+              <button type="button m-1" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+
+              <div class="modal-body">
+                <img src="" class="img-fluid" alt="alt text">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    </section>
+
+{% endblock %}

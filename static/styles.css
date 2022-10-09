@@ -1,0 +1,173 @@
+#pagHeader .navbar-expand .navbar-nav>li:hover{
+    text-shadow: .5rem .5rem .7rem #fff, 0rem 0rem .7rem #fff;
+}
+
+
+/* https://stackoverflow.com/questions/45379727/make-images-the-same-size-in-bootstrap-grid
+main section img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+*/
+
+
+.square-img-12 {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.square-img-8 {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+}
+
+.square-img-auto {
+  min-width: 25%;
+  min-height: 25%;
+  width: 12rem;
+  height: 12rem;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/*custom classes*/
+.mh-15 {
+  max-height: 15%;
+}
+
+.cw-18 {
+  width: 18rem;
+}
+.cw-12 {
+  width: 12rem;
+}
+
+.cw-25 {
+  width: 25rem;
+}
+
+.cw-20 {
+  width: 20rem;
+}
+
+
+
+.ch-20 {
+  height: 20rem;
+}
+
+.ch-auto {
+  height: auto;
+}
+
+
+.w-90 {
+  width: 90%;
+}
+
+/*Gradients -> https://uigradients.com/*/
+.bg-mos-bottom {
+  background: linear-gradient(to bottom, #780206, #061161);
+}
+.bg-sg-top {
+  background: linear-gradient(to top, #1f1c2c, #928dab);
+}
+
+.bg-80purple-top {
+  background: linear-gradient(to top, #41295a, #2f0743);
+}
+
+.bg-royal {
+  background: linear-gradient(to right, #141e30, #243b55);
+}
+.bg-royal-top {
+  background: linear-gradient(to top, #141e30, #243b55);
+}
+.bg-royal-bottom {
+  background: linear-gradient(to bottom, #141e30, #243b55);
+}
+
+.bg-celestial {
+  background: linear-gradient(to right, #c33764, #1d2671);
+}
+
+.bg-purplepine {
+  background: linear-gradient(to right, #20002c, #cbb4d4);
+}
+
+.bg-coal {
+  background: linear-gradient(to right, #eb5757, #000000);
+}
+
+.bg-mello {
+  background: linear-gradient(to right, #c0392b, #8e44ad);
+}
+
+.bg-mello-bottom {
+  background: linear-gradient(to bottom, #c0392b, #8e44ad);
+}
+
+/*
+social media icons
+
+https://www.javatpoint.com/how-to-add-social-media-icons-in-html#:~:text=social%20media%20icons.-,Step%201%3A%20Firstly%2C%20we%20have%20to%20type%20the%20Html%20code,sticky%20icons%20of%20social%20media.&text=Step%202%3A%20Now%2C%20we%20have%20to%20place%20the%20cursor%20just,then%20attach%20the%20CDN%20link.
+*/
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%
+  }
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-pinterest {
+    background: #cb2027;
+    color: white;
+  }
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }
+  .fa-snapchat-ghost {
+    background: #fffc00;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+  .fa-skype {
+    background: #00aff0;
+    color: white;
+  }
+  .fa:hover {
+      opacity: 0.9;
+  }
+/*..............>...................*/
+/*google fonts*/
+/*sofia*/
+.f-sofia {
+  font-family: 'Sofia', cursive;
+}

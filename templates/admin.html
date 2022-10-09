@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portifolio
+{% endblock %}
+
+{% block main %}
+    <section class="row row-cols-2 row-cols-lg-4 row-cols-xl-5 flex-grow-1 flex-shrink-1 justify-content-center text-center p-4 my-auto min-vh-100 min-w-auto -py-5">
+
+      <form action="/admin" method="post" enctype="multipart/form-data" class="row w-25 h-25 needs-validation" novalidate>
+        <div class="w-100 col input-group mb-3">
+          <input type="file" name="file" class="form-control" required>
+          <div class="invalid-feedback">
+            image file required
+          </div>
+        </div>
+        <div class="col-6 input-group mb-3">
+          <span class="input-group-text">Desc.</span>
+          <input type="text" name="desc" class="form-control" required>
+          <div class="invalid-feedback">
+            description required
+          </div>
+        </div>
+        <div class="col-6 input-group mb-3">
+          <span class="input-group-text">Title</span>
+          <input type="text" name="title" class="form-control" required>
+          <div class="invalid-feedback">
+            tile required
+          </div>
+        </div>
+
+
+        <input type="submit" value="Upload" class="btn btn-primary mb-3 w-25 mx-auto">
+      </form>
+
+
+      <header class="col-12 w-100">
+          <p class="text-white h1">All Images</p>
+      </header>
+      {% for image in img if img|length > 0  %}
+      <div class="col h-100 p-2">
+          <figure class="figure text-center">
+            <div class="text-center p-2 text-white bg-royal-bottom">
+              <h6 class="text-center text-white my-1">{{ image.name }} {% if image.selected == 1 %}<span class="badge bg-success">selected</span>{% endif %}</h6>
+            </div>
+
+              <img src="img/{{ image.name }}" class="square-img-auto" alt="alt text">
+
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#edit_{{image.id}}" aria-expanded="false" aria-controls="collapseExample">
+                Edit
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#delete_{{image.id}}" aria-expanded="false" aria-controls="collapseExample">
+                Delete
+              </button>
+
+              <div class="collapse" id="edit_{{image.id}}">
+                <h6 class="text-center text-white">{{ image.name }}</h6>
+                <form method="post" action="/update" class="row w-100 h-25">
+                  <input name="id" type="hidden" value="{{ image.id }}">
+                  <input name="name" type="hidden" value="{{ image.name }}">
+                  <div class="w-100 col input-group mb-3">
+                    <span class="input-group-text">Title</span>
+                    <input name="title" type="text" value="{{ image.title }}">
+                  </div>
+                  <div class="w-100 col input-group mb-3">
+                    <span class="input-group-text">Desc.</span>
+                    <input name="desc" type="desc" value="{{ image.desc }}">
+                  </div>
+                  <div class="w-100 col input-group mb-3">
+                    <span class="input-group-text">Show</span>
+                    <input name="show" type="desc" placeholder="yes/no">
+                  </div>
+
+                    <input type="submit" value="Save Changes">
+                </form>
+              </div>
+              <div class="collapse w-100" id="delete_{{image.id}}">
+                <h6 class="text-center text-white">Delete {{ image.name }}?</h6>
+                <form method="post" action="/delete">
+                  <input name="id" type="hidden" value="{{ image.id }}">
+                  <input name="name" type="hidden" value="{{ image.name }}">
+                  <input name="name" type="hidden" value="{{ image.title }}">
+                  <input name="name" type="hidden" value="{{ image.desc }}">
+                  <input type="submit" value="remove">
+                </form>
+
+              </div>
+          </figure>
+        </div>
+
+      {% endfor %}
+    </section>
+
+
+{% endblock %}
